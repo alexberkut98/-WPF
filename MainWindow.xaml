@@ -1,0 +1,34 @@
+﻿<Window x:Class="Попытка_в_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Попытка_в_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="308" Width="449">
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" >Number</Label>
+        <Label Grid.Column="1" >Operation</Label>
+        <Label Grid.Column="2" >Number</Label>
+        <Label Grid.Column="3" >Result</Label>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
+            <Button x:Name="Plus" Margin="0,5,0,0" Click="ButtonPlus_Click">+</Button>
+            <Button x:Name="Minus" Margin="0,5,0,0" Click="ButtonMinus_Click">-</Button>
+        </StackPanel>
+        <TextBox Grid.Row="1" Grid.Column="0" x:Name="First" Margin="5,5,5,220" />
+        <TextBox Grid.Row="1" Grid.Column="2" x:Name="Second" Margin="5,5,5,220" />
+
+        <ListBox Grid.Row="1" Grid.Column="3" x:Name="Result" />
+    </Grid>
+</Window>
