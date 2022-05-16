@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:Попытка_в_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="308" Width="449">
+    <Window.DataContext>
+        <local:VM/>
+        <!-- Создаем новый VM и соединяем его со View -->
+    </Window.DataContext>
     <Grid Margin="10">
 
         <Grid.RowDefinitions>
@@ -23,12 +27,15 @@
         <Label Grid.Column="2" >Number</Label>
         <Label Grid.Column="3" >Result</Label>
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
-            <Button x:Name="Plus" Margin="0,5,0,0" Click="ButtonPlus_Click">+</Button>
-            <Button x:Name="Minus" Margin="0,5,0,0" Click="ButtonMinus_Click">-</Button>
+            <Button x:Name="Plus" Margin="0,5,0,0" 
+                    Command = "{Binding PlusCommand}">+</Button>
+            <Button x:Name="Minus" 
+                    Margin="0,5,0,0" 
+                    Command = "{Binding MinusCommand}">-</Button>
         </StackPanel>
-        <TextBox Grid.Row="1" Grid.Column="0" x:Name="First" Margin="5,5,5,220" />
-        <TextBox Grid.Row="1" Grid.Column="2" x:Name="Second" Margin="5,5,5,220" />
+        <TextBox Grid.Row="1" Text="{Binding Number1, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" x:Name="First" Margin="5,5,5,220" />
+        <TextBox Grid.Row="1" Text="{Binding Number2, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" x:Name="Second" Margin="5,5,5,220" />
 
-        <ListBox Grid.Row="1" Grid.Column="3" x:Name="Result" />
+        <TextBox Grid.Row="1" Grid.Column="3" x:Name="Result" Text="{Binding Result, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>
